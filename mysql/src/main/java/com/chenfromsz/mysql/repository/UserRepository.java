@@ -11,6 +11,7 @@ import com.chenfromsz.mysql.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+
     @Query("select t from User t where t.name =?1 and t.email =?2")
     User findByNameAndEmail(String name, String email);
 

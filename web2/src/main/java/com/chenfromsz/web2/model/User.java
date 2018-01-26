@@ -1,19 +1,28 @@
 package com.chenfromsz.web2.model;
 
+import java.util.Date;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
-import java.util.List;
+public class User implements java.io.Serializable {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
 
-public class User implements java.io.Serializable{
-    private Long id;
-    private String name;
-    private String email;
-    private Integer sex;
+    private Long              id;
+
+    private String            name;
+
+    private String            email;
+
+    private Integer           sex;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date createdate;
-    private String department;
+    private Date              createdate;
+
+    private String            department;
 
     public User() {
     }

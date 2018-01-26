@@ -11,6 +11,7 @@ import com.chenfromsz.mysql.entity.Role;
 
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long> {
+
     @Query("select t from Role t where t.name like :name")
     Page<Role> findByName(@Param("name") String name, Pageable pageRequest);
 }

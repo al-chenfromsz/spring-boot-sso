@@ -9,7 +9,6 @@ import org.springframework.dao.annotation.PersistenceExceptionTranslationPostPro
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @Configuration
 @EnableTransactionManagement(proxyTargetClass = true)
@@ -18,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class JpaConfiguration {
 
     @Bean
-    PersistenceExceptionTranslationPostProcessor persistenceExceptionTranslationPostProcessor(){
+    PersistenceExceptionTranslationPostProcessor persistenceExceptionTranslationPostProcessor() {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 

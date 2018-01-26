@@ -1,7 +1,9 @@
 package com.chenfromsz.mysql.model;
 
-public class RoleQo extends PageQo{
-    private Long id;
+public class RoleQo extends PageQo {
+
+    private Long   id;
+
     private String name;
 
     public RoleQo() {

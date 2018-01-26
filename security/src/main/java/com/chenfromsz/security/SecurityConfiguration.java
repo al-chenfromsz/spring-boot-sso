@@ -29,10 +29,12 @@ import java.util.List;
 @EnableOAuth2Sso
 @EnableConfigurationProperties(SecuritySettings.class)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
     @Autowired
     private AuthenticationManager authenticationManager;
+
     @Autowired
-    private SecuritySettings settings;
+    private SecuritySettings      settings;
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
@@ -81,14 +83,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private Filter csrfHeaderFilter() {
         return new OncePerRequestFilter() {
             @Override
-            protected void doFilterInternal(HttpServletRequest request,
-                                            HttpServletResponse response, FilterChain filterChain)
+            protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
                     throws ServletException, IOException {
-                CsrfToken csrf = (CsrfToken) request
-                        .getAttribute(CsrfToken.class.getName());
+                CsrfToken csrf = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
                 if (csrf != null) {
-                    Cookie cookie = new Cookie("XSRF-TOKEN",
-                            csrf.getToken());
+                    Cookie cookie = new Cookie("XSRF-TOKEN", csrf.getToken());
                     cookie.setPath("/");
                     response.addCookie(cookie);
                 }

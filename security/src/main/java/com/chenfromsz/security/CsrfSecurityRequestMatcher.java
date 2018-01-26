@@ -9,9 +9,12 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class CsrfSecurityRequestMatcher implements RequestMatcher {
-    protected Log log = LogFactory.getLog(getClass());
-    private Pattern allowedMethods = Pattern
-            .compile("^(GET|HEAD|TRACE|OPTIONS)$");
+
+    protected Log        log            = LogFactory.getLog(getClass());
+
+    private Pattern      allowedMethods = Pattern.compile("^(GET|HEAD|TRACE|OPTIONS)$");
+
+    private List<String> execludeUrls;                                                  //需要排除的url列表
 
     @Override
     public boolean matches(HttpServletRequest request) {
@@ -20,7 +23,7 @@ public class CsrfSecurityRequestMatcher implements RequestMatcher {
             String servletPath = request.getServletPath();
             for (String url : execludeUrls) {
                 if (servletPath.contains(url)) {
-                    log.info("++++"+servletPath);
+                    log.info("++++" + servletPath);
                     return false;
                 }
             }
@@ -28,10 +31,6 @@ public class CsrfSecurityRequestMatcher implements RequestMatcher {
         return !allowedMethods.matcher(request.getMethod()).matches();
     }
 
-    /**
-     * 需要排除的url列表
-     */
-    private List<String> execludeUrls;
 
     public List<String> getExecludeUrls() {
         return execludeUrls;

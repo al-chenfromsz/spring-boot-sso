@@ -9,6 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableZuulProxy
 @ComponentScan(basePackages = "com.test")
 public class Web2Application {
+
     public static void main(String[] args) {
         SpringApplication.run(Web2Application.class, args);
     }

@@ -13,6 +13,7 @@ import java.util.Map;
 
 @RestController
 public class UserController {
+
     @Autowired
     private UserRepository userRepository;
 
@@ -21,9 +22,9 @@ public class UserController {
         User user = userRepository.findByName(puser.getName());
         Map<String, Object> userinfo = new HashMap<>();
         userinfo.put("id", user.getId());
-        userinfo.put("name",user.getName());
+        userinfo.put("name", user.getName());
         userinfo.put("email", user.getEmail());
-        userinfo.put("department",user.getDepartment().getName());
+        userinfo.put("department", user.getDepartment().getName());
         userinfo.put("createdate", user.getCreatedate());
         return userinfo;
     }

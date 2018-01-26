@@ -11,19 +11,17 @@ import org.springframework.security.core.GrantedAuthority;
 import java.util.Collection;
 import java.util.Iterator;
 
-
 public class CustomAccessDecisionManager implements AccessDecisionManager {
+
     private static final Logger logger = Logger.getLogger(CustomAccessDecisionManager.class);
 
     @Override
-    public void decide(Authentication authentication, Object object,
-                       Collection<ConfigAttribute> configAttributes)
+    public void decide(Authentication authentication, Object object, Collection<ConfigAttribute> configAttributes)
             throws AccessDeniedException, InsufficientAuthenticationException {
         if (configAttributes == null) {
             return;
         }
 
-        //config urlroles
         Iterator<ConfigAttribute> iterator = configAttributes.iterator();
 
         while (iterator.hasNext()) {

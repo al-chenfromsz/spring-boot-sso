@@ -1,7 +1,9 @@
 package com.chenfromsz.mysql.model;
 
 public class PageQo {
+
     private Integer page = 0;
+
     private Integer size = 10;
 
     public Integer getPage() {
