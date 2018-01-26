@@ -1,5 +1,5 @@
-1. create Mysql DB: test
-2. run query: grant all privileges on test.* to 'root'@'localhost' identified by '12345678';
+1. create Mysql DB: sso
+2. run query: grant all privileges on sso.* to 'root'@'localhost' identified by '123456';
 3. mvn clean package
 4. run com.test.login.LoginApplication
 5. run com.test.resource.ResourceApplication
